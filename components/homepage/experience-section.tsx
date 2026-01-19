@@ -1,0 +1,65 @@
+import { experiences } from "../../data/experience-data";
+
+function Experience() {
+  return (
+    <div id="experience" className="relative z-50 my-12 lg:my-24 w-full">
+      {/* Grid Background */}
+      <div className="absolute inset-0 -z-10 h-full w-full bg-[hsl(220,18%,8%)]">
+        <div className="absolute h-full w-full bg-[radial-gradient(circle_at_center,rgba(0,0,0,0.22)_0%,transparent_60%),linear-gradient(to_right,hsl(220,15%,17%)_1px,transparent_1px),linear-gradient(to_bottom,hsl(220,15%,17%)_1px,transparent_1px)] bg-size[auto,3.0rem_3.0rem,3.0rem_3.0rem] bg-center opacity-30 mask-[linear-gradient(to_bottom,transparent,black_20%,black_80%,transparent)] shadow-[inset_0_0_110px_rgba(0,0,0,0.52)]"></div>
+      </div>
+      <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 lg:pt-16">
+        <div className="flex items-center gap-4 mb-10">
+          <p className="bg-[hsl(220,18%,10%)] px-4 py-2 md:text-xs rounded-full text-[hsl(38,92%,50%)] font-mono text-sm tracking-wider animate-fade-in-up">$ ls career journey/</p>
+          <span className="h-2 flex-1 bg-linear-to-r from-[hsl(38,92%,50%)] via-[hsl(38,80%,45%)] to-transparent"></span>
+        </div>
+        <h2 className="text-2xl md:text-4xl font-bold text-white leading-tight mb-6">
+            Work <span className="bg-linear-to-r from-[hsl(38,92%,50%)] via-[hsl(38,80%,45%)] to-[hsl(28,90%,48%)] bg-clip-text text-transparent hover:from-[hsl(38,92%,55%)] hover:via-[hsl(38,80%,50%)] hover:to-[hsl(28,90%,53%)] transition-all duration-300">Experience</span>
+          </h2>
+
+        <div className="max-w-5xl mx-auto pt-6">
+          <div className="relative py-8">
+            {/* Timeline Line - Center */}
+            <div className="absolute left-1/2 top-0 bottom-0 w-1 bg-linear-to-b from-[hsl(38,92%,50%)] via-[hsl(38,80%,45%)] to-transparent -translate-x-1/2 pointer-events-none" />
+
+            {experiences.map((exp, index) => (
+              <div key={exp.id} className={`relative mb-12 flex ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}>
+                {/* Left/Right Content - 45% width */}
+                <div className={`w-1/2 ${index % 2 === 0 ? 'pr-8 text-right' : 'pl-8'}`}>
+                  <div>
+                    <span className="text-[hsl(38,92%,50%)] font-mono text-sm font-medium">{exp.duration}</span>
+                    <h3 className="text-lg font-bold text-[hsl(40,20%,95%)] mt-1">{exp.title}</h3>
+                    <p className="text-sm text-[hsl(38,92%,50%)] mb-2">{exp.company}</p>
+                    <p className="text-xs text-gray-400 leading-relaxed mb-3 text-left">{exp.description}</p>
+                    
+                    <div className={`space-y-1 text-xs text-gray-400`}>
+                      {exp.highlights.map((highlight, i) => (
+                        <div key={i} className={`flex items-center gap-2`}>
+                          <span className="w-1.5 h-1.5 rounded-full bg-[hsl(38,92%,50%)]"></span>
+                          <span>{highlight}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                {/* Center Timeline Dot */}
+                <div className="w-0 flex justify-center">
+                  <div className="relative flex items-center justify-center">
+                    <div className="w-5 h-5 rounded-full border-3 border-[hsl(220,15%,20%)] bg-[hsl(220,18%,10%)] flex items-center justify-center z-10">
+                      <div className="w-2.5 h-2.5 rounded-full bg-[hsl(38,92%,50%)]"></div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Spacer - 45% width */}
+                <div className="w-1/2" />
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default Experience;
