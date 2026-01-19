@@ -1,16 +1,19 @@
 @import "tailwindcss";
 
 :root {
-  --background: hsl(220 20% 6%);
-  --foreground: hsl(40 20% 95%);
-  --primary: hsl(38 92% 50%);
-  --accent: hsl(38 80% 45%);
-  --secondary: hsl(220 15% 15%);
-  --muted: hsl(220 15% 18%);
-  --muted-foreground: hsl(220 10% 55%);
-  --card: hsl(220 18% 10%);
-  --border: hsl(220 15% 20%);
+  --background: #0D1B2A;
+  --foreground: #E0E1DD;
+  --primary: #415A77;
+  --accent: #778DA9;
+  --secondary: #1B263B;
+  --muted: #1B263B;
+  --muted-foreground: #778DA9;
+  --card: #1B263B;
+  --border: #415A77;
   --terminal-green: hsl(142 70% 55%);
+  --cyan-accent: #06B6D4;
+  --pink-accent: #EC4899;
+  --green-accent: #10B981;
 }
 
 @theme inline {
@@ -22,33 +25,36 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: hsl(220 20% 6%);
-    --foreground: hsl(40 20% 95%);
-    --primary: hsl(38 92% 50%);
-    --accent: hsl(38 80% 45%);
-    --secondary: hsl(220 15% 15%);
-    --muted: hsl(220 15% 18%);
-    --muted-foreground: hsl(220 10% 55%);
-    --card: hsl(220 18% 10%);
-    --border: hsl(220 15% 20%);
+    --background: #0D1B2A;
+    --foreground: #E0E1DD;
+    --primary: #415A77;
+    --accent: #778DA9;
+    --secondary: #1B263B;
+    --muted: #1B263B;
+    --muted-foreground: #778DA9;
+    --card: #1B263B;
+    --border: #415A77;
     --terminal-green: hsl(142 70% 55%);
+    --cyan-accent: #06B6D4;
+    --pink-accent: #EC4899;
+    --green-accent: #10B981;
   }
 }
 
 body {
   background:
-    radial-gradient(circle at 20% 50%, hsla(38, 92%, 50%, 0.08), transparent 30%),
-    radial-gradient(circle at 80% 20%, hsla(38, 80%, 45%, 0.06), transparent 35%),
+    radial-gradient(circle at 20% 50%, rgba(6, 182, 212, 0.08), transparent 30%),
+    radial-gradient(circle at 80% 20%, rgba(65, 90, 119, 0.06), transparent 35%),
     var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
   background-attachment: fixed;
 }
 
-/* Amber glow effect */
-@keyframes amber-glow {
-  0%, 100% { text-shadow: 0 0 10px hsla(38, 92%, 50%, 0.4); }
-  50% { text-shadow: 0 0 20px hsla(38, 92%, 50%, 0.6); }
+/* Cyan glow effect */
+@keyframes cyan-glow {
+  0%, 100% { text-shadow: 0 0 10px rgba(6, 182, 212, 0.4); }
+  50% { text-shadow: 0 0 20px rgba(6, 182, 212, 0.6); }
 }
 
 #sticky-card-1 {

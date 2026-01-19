@@ -1,6 +1,6 @@
 export const personalData = {
   name: "Salwa Ansari",
-  profile: '/assets/profile.jpeg',
+  profile: '/assets/profile-pic.jpeg',
   designation: "Full Stack AI Developer",
   description: "Full-stack software developer and AI enthusiast with expertise in React, Next.js, Node.js, MongoDB, and AI/ML solutions. Passionate about building scalable, responsive applications with intelligent features and user-centered design.",
   email: 'salwaaliakbar22@gmail.com',

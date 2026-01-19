@@ -6,15 +6,15 @@ function Projects() {
     <div id="projects" className="relative z-50 my-12 lg:my-24">
       <div className="w-full max-w-6xl mx-auto">
         <div className="flex items-center gap-4 mb-10">
-          <p className="bg-[hsl(220,18%,10%)] px-4 py-2 md:text-xs rounded-full text-[hsl(38,92%,50%)] font-mono text-sm tracking-wider animate-fade-in-up mt-4 mb-2">
+          <p className="bg-[#1B263B] px-4 py-2 md:text-xs rounded-full text-[#06B6D4] font-mono text-sm tracking-wider animate-fade-in-up mt-4 mb-2">
             $ ls projects/
           </p>
-          <span className="h-2 flex-1 bg-linear-to-r from-[hsl(38,92%,50%)] via-[hsl(38,80%,45%)] to-transparent"></span>
+          <span className="h-2 flex-1 bg-linear-to-r from-[#06B6D4] via-[#0EA5E9] to-transparent"></span>
         </div>
 
         <h2 className="text-2xl md:text-4xl font-bold text-white leading-tight mb-6">
           Thing{" "}
-          <span className="bg-linear-to-r from-[hsl(38,92%,50%)] via-[hsl(38,80%,45%)] to-[hsl(28,90%,48%)] bg-clip-text text-transparent hover:from-[hsl(38,92%,55%)] hover:via-[hsl(38,80%,50%)] hover:to-[hsl(28,90%,53%)] transition-all duration-300">
+          <span className="bg-linear-to-r from-[#06B6D4] via-[#0EA5E9] to-[#06B6D4] bg-clip-text text-transparent hover:from-[#0EA5E9] hover:via-[#06B6D4] hover:to-[#0EA5E9] transition-all duration-300">
             I{"'"}ve Built
           </span>
         </h2>

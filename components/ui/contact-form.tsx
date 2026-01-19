@@ -4,7 +4,7 @@ import { isValidEmail } from "../../utils/check-emails";
 import axios, { AxiosError } from "axios";
 import { useState, ChangeEvent } from "react";
 import { TbMailForward } from "react-icons/tb";
-import { toast } from "react-toastify";
+import Swal from 'sweetalert2';
 
 interface ErrorState {
   email: boolean;
@@ -51,7 +51,21 @@ function ContactForm() {
         userInput
       );
 
-      toast.success("Message sent successfully!");
+      // Show custom themed success popup
+      Swal.fire({
+        icon: 'success',
+        title: 'Message Sent!',
+        text: 'Thank you for reaching out! I will get back to you soon.',
+        background: '#1B263B',
+        color: '#E0E1DD',
+        confirmButtonColor: '#06B6D4',
+        confirmButtonText: 'Great!',
+        iconColor: '#06B6D4',
+        customClass: {
+          popup: 'border border-[#415A77] rounded-lg shadow-[0_0_20px_rgba(6,182,212,0.3)]',
+        }
+      });
+
       setUserInput({
         name: "",
         email: "",
@@ -59,11 +73,24 @@ function ContactForm() {
       });
     } catch (error: unknown) {
       const axiosError = error as AxiosError<{ message: string }> | unknown;
-      if (axiosError instanceof axios.AxiosError) {
-        toast.error(axiosError?.response?.data?.message || "Failed to send message");
-      } else {
-        toast.error("An error occurred");
-      }
+      const errorMessage = axiosError instanceof axios.AxiosError 
+        ? axiosError?.response?.data?.message || "Failed to send message"
+        : "An error occurred";
+      
+      // Show custom themed error popup
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: errorMessage,
+        background: '#1B263B',
+        color: '#E0E1DD',
+        confirmButtonColor: '#06B6D4',
+        confirmButtonText: 'Try Again',
+        iconColor: '#ef4444',
+        customClass: {
+          popup: 'border border-[#415A77] rounded-lg shadow-[0_0_30px_rgba(6,182,212,0.2)]',
+        }
+      });
     } finally {
       setIsLoading(false);
     };
@@ -71,15 +98,15 @@ function ContactForm() {
 
   return (
     <div className="w-full">
-      <div className="w-full text-[hsl(40,20%,95%)] rounded-lg border border-[hsl(220,15%,20%)] p-4 lg:p-8 bg-[hsl(220,18%,10%)]">
-        <p className="text-sm text-[hsl(40,20%,80%)]">{"If you have any questions or concerns, please don't hesitate to contact me. I am open to any work opportunities that align with my skills and interests."}</p>
+      <div className="w-full text-[#E0E1DD] rounded-lg border border-[#415A77] p-4 lg:p-8 bg-[#1B263B] shadow-[0_0_30px_rgba(6,182,212,0.15),0_20px_60px_rgba(0,0,0,0.3)]">
+        <p className="text-sm text-[#778DA9]">{"If you have any questions or concerns, please don't hesitate to contact me. I am open to any work opportunities that align with my skills and interests."}</p>
         <form onSubmit={handleSendMail} className="mt-6 flex flex-col gap-4">
           <div className="flex flex-col gap-2">
-            <label className="text-base text-[hsl(40,20%,95%)]">Your Name: </label>
+            <label className="text-base text-[#E0E1DD] font-medium">Your Name: </label>
             <input
               title="Full Name"
               placeholder="Name"
-              className="bg-[hsl(220,18%,10%)] w-full border rounded-md border-[hsl(220,15%,20%)] focus:border-[hsl(38,92%,50%)] ring-0 outline-0 transition-all duration-300 px-3 py-2 text-[hsl(40,20%,95%)]"
+              className="bg-[#0D1B2A] w-full border-2 rounded-md border-[#415A77] focus:border-[#06B6D4] focus:shadow-[0_0_20px_rgba(6,182,212,0.3)] ring-0 outline-0 transition-all duration-300 px-3 py-2 text-[#E0E1DD]"
               type="text"
               maxLength={100}
               required={true}
@@ -90,11 +117,11 @@ function ContactForm() {
           </div>
 
           <div className="flex flex-col gap-2">
-            <label className="text-base text-[hsl(40,20%,95%)]">Your Email: </label>
+            <label className="text-base text-[#E0E1DD] font-medium">Your Email: </label>
             <input
               title="Email Address"
               placeholder="Email"
-              className="bg-[hsl(220,18%,10%)] w-full border rounded-md border-[hsl(220,15%,20%)] focus:border-[hsl(38,92%,50%)] ring-0 outline-0 transition-all duration-300 px-3 py-2 text-[hsl(40,20%,95%)]"
+              className="bg-[#0D1B2A] w-full border-2 rounded-md border-[#415A77] focus:border-[#06B6D4] focus:shadow-[0_0_20px_rgba(6,182,212,0.3)] ring-0 outline-0 transition-all duration-300 px-3 py-2 text-[#E0E1DD]"
               type="email"
               maxLength={100}
               required={true}
@@ -109,11 +136,11 @@ function ContactForm() {
           </div>
 
           <div className="flex flex-col gap-2">
-            <label className="text-base text-[hsl(40,20%,95%)]">Your Message: </label>
+            <label className="text-base text-[#E0E1DD] font-medium">Your Message: </label>
             <textarea
               title="Message"
               placeholder="Type your message here..."
-              className="bg-[hsl(220,18%,10%)] w-full border rounded-md border-[hsl(220,15%,20%)] focus:border-[hsl(38,92%,50%)] ring-0 outline-0 transition-all duration-300 px-3 py-2 text-[hsl(40,20%,95%)]"
+              className="bg-[#0D1B2A] w-full border-2 rounded-md border-[#415A77] focus:border-[#06B6D4] focus:shadow-[0_0_20px_rgba(6,182,212,0.3)] ring-0 outline-0 transition-all duration-300 px-3 py-2 text-[#E0E1DD]"
               maxLength={500}
               name="message"
               required={true}
@@ -128,7 +155,7 @@ function ContactForm() {
               All fields are required!
             </p>}
             <button
-              className="flex items-center gap-1 hover:gap-3 rounded-full bg-linear-to-r from-[hsl(38,92%,50%)] to-[hsl(38,80%,45%)] px-5 md:px-12 py-2.5 md:py-3 text-center text-xs md:text-sm font-medium uppercase tracking-wider text-[hsl(220,20%,6%)] no-underline transition-all duration-200 ease-out hover:text-[hsl(220,20%,6%)] hover:no-underline md:font-semibold"
+              className="flex items-center gap-1 hover:gap-3 rounded-full bg-linear-to-r from-[#06B6D4] via-[#0EA5E9] to-[#06B6D4] px-5 md:px-12 py-2.5 md:py-3 text-center text-xs md:text-sm font-medium uppercase tracking-wider text-white no-underline transition-all duration-200 ease-out hover:text-white hover:no-underline md:font-semibold shadow-[0_0_20px_rgba(6,182,212,0.3),0_10px_30px_rgba(0,0,0,0.3)] hover:shadow-[0_0_30px_rgba(6,182,212,0.6),0_15px_40px_rgba(0,0,0,0.4)] hover:scale-105"
               type="submit"
               disabled={isLoading}
             >
