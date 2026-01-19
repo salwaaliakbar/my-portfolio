@@ -16,15 +16,18 @@ function Experience() {
             Work <span className="bg-linear-to-r from-[#06B6D4] via-[#0EA5E9] to-[#06B6D4] bg-clip-text text-transparent hover:from-[#0EA5E9] hover:via-[#06B6D4] hover:to-[#0EA5E9] transition-all duration-300">Experience</span>
           </h2>
 
-        <div className="max-w-5xl mx-auto pt-6">
+        <div className="max-w-5xl mx-auto pt-6 px-4">
           <div className="relative py-8">
-            {/* Timeline Line - Center */}
-            <div className="absolute left-1/2 top-0 bottom-0 w-1 bg-linear-to-b from-[#06B6D4] via-[#0EA5E9] to-transparent -translate-x-1/2 pointer-events-none" />
+            {/* Timeline Line - Center (Hidden on mobile) */}
+            <div className="hidden lg:block absolute left-1/2 top-0 bottom-0 w-1 bg-linear-to-b from-[#06B6D4] via-[#0EA5E9] to-transparent -translate-x-1/2 pointer-events-none" />
+            
+            {/* Timeline Line - Left (Mobile) */}
+            <div className="lg:hidden absolute left-3 top-0 bottom-0 w-1 bg-linear-to-b from-[#06B6D4] via-[#0EA5E9] to-transparent pointer-events-none" />
 
             {experiences.map((exp, index) => (
-              <div key={exp.id} className={`relative mb-12 flex ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}>
-                {/* Left/Right Content - 45% width */}
-                <div className={`w-1/2 ${index % 2 === 0 ? 'pr-8 text-right' : 'pl-8'}`}>
+              <div key={exp.id} className={`relative mb-12 flex flex-col lg:flex-row ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} pl-8 lg:pl-0`}>
+                {/* Left/Right Content - 45% width on desktop, full width on mobile */}
+                <div className={`w-full lg:w-1/2 ${index % 2 === 0 ? 'lg:pr-8 lg:text-right text-left' : 'lg:pl-8 text-left'}`}>
                   <div>
                     <span className="text-[#06B6D4] font-mono text-sm font-medium">{exp.duration}</span>
                     <h3 className="text-lg font-bold text-[#E0E1DD] mt-1">{exp.title}</h3>
@@ -42,8 +45,8 @@ function Experience() {
                   </div>
                 </div>
 
-                {/* Center Timeline Dot */}
-                <div className="w-0 flex justify-center">
+                {/* Center Timeline Dot - Hidden on mobile, visible on desktop */}
+                <div className="hidden lg:flex w-0 justify-center">
                   <div className="relative flex items-center justify-center">
                     <div className="w-5 h-5 rounded-full border-3 border-[#415A77] bg-[#0D1B2A] flex items-center justify-center z-10">
                       <div className="w-2.5 h-2.5 rounded-full bg-pink-500"></div>
@@ -51,14 +54,14 @@ function Experience() {
                   </div>
                 </div>
 
-                {/* Spacer - 45% width */}
-                <div className="w-1/2" />
+                {/* Spacer - 45% width on desktop, hidden on mobile */}
+                <div className="hidden lg:block w-1/2" />
               </div>
             ))}
+            </div>
           </div>
         </div>
       </div>
-    </div>
   );
 }
 

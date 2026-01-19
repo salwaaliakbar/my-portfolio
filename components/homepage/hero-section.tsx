@@ -13,8 +13,8 @@
           <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_center,rgba(6,182,212,0.04)_0%,transparent_70%),linear-gradient(to_right,#415A77_1px,transparent_1px),linear-gradient(to_bottom,#415A77_1px,transparent_1px)] bg-[auto,3rem_3rem,3rem_3rem] bg-center opacity-30 shadow-[inset_0_0_240px_rgba(0,0,0,1)] mask-[linear-gradient(to_bottom,transparent,rgba(0,0,0,0.45)_22%,rgba(0,0,0,0.45)_78%,transparent)]"></div>
         </div>
 
-        <div className="w-full max-w-6xl mx-auto grid grid-cols-1 items-start lg:grid-cols-[1.05fr_0.95fr] lg:gap-12 gap-y-8 pt-8 lg:pt-12">
-          <div className="order-2 lg:order-1 flex flex-col items-start justify-center p-2 pb-10 md:pb-10 lg:pt-0">
+        <div className="w-full max-w-6xl mx-auto grid grid-cols-1 items-start lg:grid-cols-[1.05fr_0.95fr] lg:gap-12 gap-y-8 pt-8 lg:pt-12 px-4 sm:px-6 lg:px-0">
+          <div className="order-2 lg:order-1 flex flex-col items-start justify-center pb-10 md:pb-10 lg:pt-0">
             <p className="text-[#06B6D4] font-mono text-sm tracking-wider animate-fade-in-up mt-4 mb-2 drop-shadow-[0_0_10px_rgba(6,182,212,0.5)]">
                   $ whoami
                 </p>
@@ -73,12 +73,12 @@
             </div>
 
           </div>
-          <div className="order-1 lg:order-2 from-[#1B263B] border-[#415A77] relative rounded-lg border bg-linear-to-r to-[#0D1B2A] shadow-[0_0_30px_rgba(6,182,212,0.15),0_20px_60px_rgba(0,0,0,0.4)]">
+          <div className="order-1 lg:order-2 from-[#1B263B] border-[#415A77] relative rounded-lg border bg-linear-to-r to-[#0D1B2A] shadow-[0_0_30px_rgba(6,182,212,0.15),0_20px_60px_rgba(0,0,0,0.4)] mx-2 sm:mx-0">
             <div className="flex flex-row">
               <div className="h-px w-full bg-linear-to-r from-transparent via-[#06B6D4] to-[#0EA5E9]"></div>
               <div className="h-px w-full bg-linear-to-r from-[#0EA5E9] to-transparent"></div>
             </div>
-            <div className="px-3 lg:px-5 py-3 lg:py-4">
+            <div className="px-4 md:px-5 lg:px-5 py-3 lg:py-4">
               <div className="flex flex-row space-x-2">
                 <div className="h-2.5 w-2.5 rounded-full bg-red-500"></div>
                 <div className="h-2.5 w-2.5 rounded-full bg-yellow-500"></div>

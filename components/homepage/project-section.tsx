@@ -3,8 +3,8 @@ import ProjectCard from "../ui/project-card";
 
 function Projects() {
   return (
-    <div id="projects" className="relative z-50 my-12 lg:my-24">
-      <div className="w-full max-w-6xl mx-auto">
+    <div id="projects" className="relative z-50 my-12 lg:my-24 w-full">
+      <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center gap-4 mb-10">
           <p className="bg-[#1B263B] px-4 py-2 md:text-xs rounded-full text-[#06B6D4] font-mono text-sm tracking-wider animate-fade-in-up mt-4 mb-2">
             $ ls projects/
