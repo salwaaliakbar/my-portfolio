@@ -3,10 +3,11 @@ import { experiences } from "../../data/experience-data";
 function Experience() {
   return (
     <div id="experience" className="relative z-50 my-12 lg:my-24 w-full">
-      {/* Grid Background */}
-      <div className="absolute inset-0 -z-10 h-full w-full bg-[#0D1B2A]">
-        <div className="absolute h-full w-full bg-[radial-gradient(circle_at_center,rgba(0,0,0,0.22)_0%,transparent_60%),linear-gradient(to_right,#415A77_1px,transparent_1px),linear-gradient(to_bottom,#415A77_1px,transparent_1px)] bg-size[auto,3.0rem_3.0rem,3.0rem_3.0rem] bg-center opacity-30 mask-[linear-gradient(to_bottom,transparent,black_20%,black_80%,transparent)] shadow-[inset_0_0_110px_rgba(0,0,0,0.52)]"></div>
-      </div>
+       {/* Grid Background */}
+        <div className="absolute inset-0 -z-10 h-full w-full bg-[#0D1B2A] overflow-hidden">
+          <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_center,rgba(6,182,212,0.04)_0%,transparent_70%),linear-gradient(to_right,#415A77_1px,transparent_1px),linear-gradient(to_bottom,#415A77_1px,transparent_1px)] bg-[auto,3rem_3rem,3rem_3rem] bg-center opacity-30 shadow-[inset_0_0_240px_rgba(0,0,0,1)] mask-[linear-gradient(to_bottom,transparent,rgba(0,0,0,0.45)_22%,rgba(0,0,0,0.45)_78%,transparent)]"></div>
+        </div>
+        
       <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 lg:pt-16">
         <div className="flex items-center gap-4 mb-10">
           <p className="bg-[#1B263B] px-4 py-2 md:text-xs rounded-full text-[#06B6D4] font-mono text-sm tracking-wider animate-fade-in-up">$ ls career journey/</p>
