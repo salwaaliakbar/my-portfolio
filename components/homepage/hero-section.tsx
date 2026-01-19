@@ -59,7 +59,7 @@
 
             <div className="flex items-center gap-2 md:gap-3 flex-wrap">
               <Link href="#contact" className="bg-linear-to-r to-[#0EA5E9] from-[#06B6D4] p-px rounded-full transition-all duration-300 hover:from-[#22D3EE] hover:to-[#38BDF8] shadow-[0_0_20px_rgba(6,182,212,0.3)] hover:shadow-[0_0_30px_rgba(6,182,212,0.6)]">
-                <button className="px-4 md:px-6 py-2 md:py-3 bg-[#1B263B] rounded-full border-none text-center text-xs md:text-sm font-medium uppercase tracking-wider text-white no-underline transition-all duration-200 ease-out md:font-semibold flex items-center gap-1 hover:gap-3">
+                <button className="px-4 md:px-6 py-2 md:py-3 bg-[#1B263B] rounded-full border-none text-center text-xs md:text-sm font-medium uppercase tracking-wider text-white no-underline transition-all duration-200 ease-out md:font-semibold flex items-center gap-1 hover:gap-3 cursor-pointer">
                   <span>Contact me</span>
                   <RiContactsFill size={14} />
                 </button>
