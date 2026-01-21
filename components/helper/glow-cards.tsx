@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, ReactNode } from 'react';
+import { useTheme } from "../../context/ThemeContext";
 
 interface GlowCardProps {
   children: ReactNode;
@@ -8,6 +9,8 @@ interface GlowCardProps {
 }
 
 const GlowCard = ({ children, identifier }: GlowCardProps) => {
+  const { theme } = useTheme();
+  const isDark = theme === "dark";
   useEffect(() => {
     const CONTAINER = document.querySelector<HTMLElement>(`.glow-container-${identifier}`);
     const CARDS = document.querySelectorAll<HTMLElement>(`.glow-card-${identifier}`);
@@ -76,7 +79,7 @@ const GlowCard = ({ children, identifier }: GlowCardProps) => {
 
   return (
     <div className={`glow-container-${identifier} glow-container`}>
-      <article className={`glow-card glow-card-${identifier} h-fit cursor-pointer border border-[#415A77] transition-all duration-300 relative bg-[#1B263B] text-[#E0E1DD] rounded-xl hover:border-[#06B6D4] hover:shadow-[0_0_30px_rgba(6,182,212,0.3)] w-full`}>
+      <article className={`glow-card glow-card-${identifier} h-fit cursor-pointer transition-all duration-300 relative rounded-xl w-full border ${isDark ? "border-[#415A77] bg-[#1B263B] text-[#E0E1DD] hover:border-[#06B6D4] hover:shadow-[0_0_30px_rgba(6,182,212,0.3)]" : "border-[#D5D5D7] bg-[#FFFFFF] text-[#1D1D1F] hover:border-[#0071E3] hover:shadow-[0_0_30px_rgba(0,113,227,0.25)]"}`}>
         <div className="glows"></div>
         {children}
       </article>

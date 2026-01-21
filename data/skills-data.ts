@@ -40,3 +40,56 @@ export const skillsData = [
   'Stripe',
   'PayPal',
 ]
+
+export const categorizedSkills = [
+  {
+    category: "AI/ML Expertise",
+    skills: [
+      { name: "Python", proficiency: 85 },
+      { name: "TensorFlow", proficiency: 80 },
+      { name: "Pytorch", proficiency: 75 },
+      { name: "Scikit-Learn", proficiency: 80 },
+      { name: "Numpy", proficiency: 85 },
+      { name: "Pandas", proficiency: 85 },
+      { name: "Opencv", proficiency: 70 },
+      { name: "NLP", proficiency: 75 },
+    ]
+  },
+  {
+    category: "Frontend Development",
+    skills: [
+      { name: "React", proficiency: 90 },
+      { name: "Next JS", proficiency: 85 },
+      { name: "Typescript", proficiency: 80 },
+      { name: "Javascript", proficiency: 90 },
+      { name: "Tailwind", proficiency: 85 },
+      { name: "HTML", proficiency: 95 },
+      { name: "CSS", proficiency: 90 },
+      { name: "Vue", proficiency: 70 },
+    ]
+  },
+  {
+    category: "Backend Development",
+    skills: [
+      { name: "Node JS", proficiency: 85 },
+      { name: "Express JS", proficiency: 85 },
+      { name: "Fast API", proficiency: 75 },
+      { name: "REST API", proficiency: 85 },
+      { name: "MongoDB", proficiency: 80 },
+      { name: "PostgreSQL", proficiency: 75 },
+      { name: "Prisma", proficiency: 70 },
+      { name: "Supabase", proficiency: 75 },
+    ]
+  },
+  {
+    category: "Mobile & Tools",
+    skills: [
+      { name: "Flutter", proficiency: 75 },
+      { name: "Git", proficiency: 85 },
+      { name: "GitHub", proficiency: 85 },
+      { name: "Postman", proficiency: 80 },
+      { name: "Vercel", proficiency: 80 },
+      { name: "Jest", proficiency: 70 },
+    ]
+  }
+]
