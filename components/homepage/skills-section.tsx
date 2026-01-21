@@ -52,8 +52,8 @@ function Skills() {
   };
 
   return (
-    <div id="skills" className={`relative z-50 px-4 py-2 lg:py-4 transition-colors duration-300`}>
-      <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div id="skills" className={`relative z-50 px-2 py-2 lg:py-4 transition-colors duration-300`}>
+      <div className="w-full max-w-6xl mx-auto px-2 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="flex items-center gap-4 mb-8">
           <p className={`px-4 py-2 text-xs md:text-sm rounded-full font-mono tracking-wider transition-colors duration-300 ${isDark ? "bg-[#1B263B] text-[#06B6D4]" : "bg-[#E5E5E7] text-[#0071E3]"}`}>
@@ -132,7 +132,7 @@ function Skills() {
                 {expertiseData.map((expertise, idx) => (
                   <div
                     key={idx}
-                    className="w-full lg:w-1/3 shrink-0 px-2 md:px-3"
+                    className="w-full lg:w-1/3 shrink-0 sm:px-2"
                   >
                     <div className={`h-full rounded-2xl overflow-hidden transition-all duration-300 ${isDark ? "bg-linear-to-br from-[#1B263B] to-[#0D1B2A] border border-[#415A77] shadow-[0_8px_32px_rgba(0,0,0,0.4)]" : "bg-linear-to-br from-white to-[#F5F5F7] border border-[#D5D5D7] shadow-[0_8px_32px_rgba(0,0,0,0.08)]"}`}>
                       {/* Gradient Top Border */}
@@ -156,7 +156,7 @@ function Skills() {
                       </div>
 
                       {/* Terminal Content */}
-                      <div className="p-5 font-mono text-xs space-y-3 min-h-400px flex flex-col">
+                      <div className="p-5 font-mono text-xs space-y-3 min-h-[400px] flex flex-col">
                         <p className={`${isDark ? "text-[#34C759]" : "text-[#34C759]"}`}>
                           $ cat expertise.json
                         </p>

@@ -89,7 +89,7 @@ function Projects() {
             {projectsData.slice(0, 4).map((project, index) => (
               <div
                 key={index}
-                className="w-full shrink-0 px-2"
+                className="w-full shrink-0"
               >
                 <div className="box-border flex items-center justify-center rounded-2xl transition-all duration-75">
                   <ProjectCard project={project} />

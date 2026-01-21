@@ -9,7 +9,7 @@ function Navbar() {
 
   return (
     <nav className={`${isDark ? "bg-[#1B263B] border-[#415A77]" : "bg-[#FFFFFF] border-[#D5D5D7]"} border-b transition-colors duration-300`}>
-      <div className="flex items-center justify-between py-5 px-6">
+      <div className="flex items-center justify-between gap-4 py-5 px-6">
         <div className="flex shrink-0 items-center">
           <Link
             href="/"
@@ -21,7 +21,7 @@ function Navbar() {
           </Link>
         </div>
 
-        <ul className="mt-4 flex h-screen max-h-0 w-full flex-col items-start text-sm opacity-0 md:mt-0 md:h-auto md:max-h-screen md:w-auto md:flex-row md:space-x-1 md:border-0 md:opacity-100" id="navbar-default">
+        <ul className="hidden md:flex flex-1 items-center justify-center gap-1 text-sm" id="navbar-default">
           <li>
             <Link className="block px-4 py-2 no-underline outline-none hover:no-underline" href="/#about">
               <div className={`text-sm transition-colors duration-300 ${isDark ? "text-gray-300 hover:text-[#06B6D4]" : "text-[#86868B] hover:text-[#0071E3]"}`}>ABOUT</div>
@@ -40,16 +40,15 @@ function Navbar() {
           <li>
             <Link className="block px-4 py-2 no-underline outline-none hover:no-underline" href="/#projects"><div className={`text-sm transition-colors duration-300 ${isDark ? "text-gray-300 hover:text-[#06B6D4]" : "text-[#86868B] hover:text-[#0071E3]"}`}>PROJECTS</div></Link>
           </li>
-          <li>
-            <button 
-              onClick={toggleTheme}
-              className={`mx-4 px-3 py-2 rounded-lg transition-all duration-300 cursor-pointer ${isDark ? "bg-[#415A77] text-[#06B6D4] hover:bg-[#1B263B]" : "bg-[#E5E5E7] text-[#0071E3] hover:bg-[#D5D5D7]"}`}
-              aria-label="Toggle theme"
-            >
-              {isDark ? "☀️" : "🌙"}
-            </button>
-          </li>
         </ul>
+
+        <button 
+          onClick={toggleTheme}
+          className={`inline-flex items-center justify-center px-3 py-2 rounded-lg transition-all duration-300 cursor-pointer ${isDark ? "bg-[#415A77] text-[#06B6D4] hover:bg-[#1B263B]" : "bg-[#E5E5E7] text-[#0071E3] hover:bg-[#D5D5D7]"}`}
+          aria-label="Toggle theme"
+        >
+          {isDark ? "☀️" : "🌙"}
+        </button>
       </div>
     </nav>
   );

@@ -19,7 +19,7 @@ function ProjectCard({ project }: ProjectCardProps) {
 
   return (
     <div
-      className={`h-full min-h-520px rounded-2xl overflow-hidden transition-all duration-300 flex flex-col ${isDark ? "bg-linear-to-br from-[#1B263B] to-[#0D1B2A] border border-[#415A77] shadow-[0_8px_32px_rgba(0,0,0,0.4)]" : "bg-linear-to-br from-white to-[#F5F5F7] border border-[#D5D5D7] shadow-[0_8px_32px_rgba(0,0,0,0.08)]"}`}
+      className={`h-full min-h-[500px] rounded-2xl overflow-hidden transition-all duration-300 flex flex-col ${isDark ? "bg-linear-to-br from-[#1B263B] to-[#0D1B2A] border border-[#415A77] shadow-[0_8px_32px_rgba(0,0,0,0.4)]" : "bg-linear-to-br from-white to-[#F5F5F7] border border-[#D5D5D7] shadow-[0_8px_32px_rgba(0,0,0,0.08)]"}`}
     >
       {/* Gradient Top Border */}
       <div className="flex">
