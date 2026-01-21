@@ -4,16 +4,29 @@ import { skillsData } from "../../data/skills-data";
 import { expertiseData } from "../../data/expertise-data";
 import { skillsImage } from "../../utils/skills-image";
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useTheme } from "../../context/ThemeContext";
 
 function Skills() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
-  const cardsToShow = 3;
+  const [isMobile, setIsMobile] = useState(false);
   const { theme } = useTheme();
   const isDark = theme === "dark";
 
+  // Detect screen size
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 1024);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  // Dynamic cards to show based on screen size
+  const cardsToShow = isMobile ? 1 : 3;
   const maxIndex = expertiseData.length - cardsToShow;
 
   const handleNext = () => {
@@ -30,8 +43,16 @@ function Skills() {
     setTimeout(() => setIsAnimating(false), 800);
   };
 
+  const handleDotClick = (idx: number) => {
+    if (!isAnimating && idx !== currentIndex) {
+      setIsAnimating(true);
+      setCurrentIndex(idx);
+      setTimeout(() => setIsAnimating(false), 800);
+    }
+  };
+
   return (
-    <div id="skills" className={`relative z-50 px-4 py-2 lg:py-4 transition-colors duration-300 `}>
+    <div id="skills" className={`relative z-50 px-4 py-2 lg:py-4 transition-colors duration-300`}>
       <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="flex items-center gap-4 mb-8">
@@ -77,7 +98,7 @@ function Skills() {
         {/* Expertise Carousel */}
         <div className="mt-16">
           <div className="relative max-w-6xl mx-auto">
-            {/* Navigation Buttons */}
+            {/* Navigation Buttons - Desktop Only */}
             <button
               onClick={handlePrev}
               disabled={isAnimating || currentIndex === 0}
@@ -91,7 +112,7 @@ function Skills() {
 
             <button
               onClick={handleNext}
-              disabled={isAnimating || currentIndex >= expertiseData.length - 3}
+              disabled={isAnimating || currentIndex >= maxIndex}
               className={`hidden lg:flex absolute -right-4 xl:-right-16 top-1/2 -translate-y-1/2 z-20 p-4 rounded-full transition-all duration-300 disabled:opacity-30 disabled:cursor-not-allowed items-center justify-center group ${isDark ? "bg-[#1B263B] border border-[#415A77] text-[#06B6D4] hover:bg-[#0D1B2A] hover:border-[#06B6D4] hover:shadow-[0_0_30px_rgba(6,182,212,0.3)] disabled:hover:shadow-none" : "bg-white border border-[#D5D5D7] text-[#0071E3] hover:bg-[#F5F5F7] hover:border-[#0071E3] hover:shadow-[0_8px_30px_rgba(0,113,227,0.2)] disabled:hover:shadow-none"}`}
               aria-label="Next"
             >
@@ -105,13 +126,13 @@ function Skills() {
               <div
                 className="flex transition-transform duration-600 ease-out"
                 style={{
-                  transform: `translateX(-${currentIndex * (100 / 3)}%)`
+                  transform: `translateX(-${currentIndex * (100 / cardsToShow)}%)`
                 }}
               >
                 {expertiseData.map((expertise, idx) => (
                   <div
                     key={idx}
-                    className="w-full md:w-1/2 lg:w-1/3 shrink-0 px-2 md:px-3"
+                    className="w-full lg:w-1/3 shrink-0 px-2 md:px-3"
                   >
                     <div className={`h-full rounded-2xl overflow-hidden transition-all duration-300 ${isDark ? "bg-linear-to-br from-[#1B263B] to-[#0D1B2A] border border-[#415A77] shadow-[0_8px_32px_rgba(0,0,0,0.4)]" : "bg-linear-to-br from-white to-[#F5F5F7] border border-[#D5D5D7] shadow-[0_8px_32px_rgba(0,0,0,0.08)]"}`}>
                       {/* Gradient Top Border */}
@@ -188,20 +209,20 @@ function Skills() {
             {/* Mobile Navigation */}
             <div className="flex lg:hidden justify-center gap-4 mt-6">
               <button
-                title="left"
                 onClick={handlePrev}
                 disabled={isAnimating || currentIndex === 0}
-                className={`p-3 rounded-full transition-all duration-300 disabled:opacity-30 ${isDark ? "bg-[#1B263B] border border-[#415A77] text-[#06B6D4]" : "bg-white border border-[#D5D5D7] text-[#0071E3]"}`}
+                className={`p-3 rounded-full transition-all duration-300 disabled:opacity-30 disabled:cursor-not-allowed ${isDark ? "bg-[#1B263B] border border-[#415A77] text-[#06B6D4]" : "bg-white border border-[#D5D5D7] text-[#0071E3]"}`}
+                aria-label="Previous"
               >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                 </svg>
               </button>
               <button
-                title="right"
                 onClick={handleNext}
-                disabled={isAnimating || currentIndex >= expertiseData.length - 3}
-                className={`p-3 rounded-full transition-all duration-300 disabled:opacity-30 ${isDark ? "bg-[#1B263B] border border-[#415A77] text-[#06B6D4]" : "bg-white border border-[#D5D5D7] text-[#0071E3]"}`}
+                disabled={isAnimating || currentIndex >= maxIndex}
+                className={`p-3 rounded-full transition-all duration-300 disabled:opacity-30 disabled:cursor-not-allowed ${isDark ? "bg-[#1B263B] border border-[#415A77] text-[#06B6D4]" : "bg-white border border-[#D5D5D7] text-[#0071E3]"}`}
+                aria-label="Next"
               >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -212,18 +233,19 @@ function Skills() {
 
           {/* Dots Indicator */}
           <div className="flex justify-center gap-2 mt-8">
-            {Array.from({ length: expertiseData.length - 2 }).map((_, idx) => (
+            {Array.from({ length: maxIndex + 1 }).map((_, idx) => (
               <button
                 key={idx}
+                onClick={() => handleDotClick(idx)}
                 disabled={isAnimating}
-                className={`h-2 rounded-full transition-all duration-300 ${
+                className={`h-2 rounded-full transition-all duration-300 disabled:cursor-not-allowed ${
                   idx === currentIndex
                     ? isDark 
                       ? "w-8 bg-[#06B6D4] shadow-[0_0_10px_rgba(6,182,212,0.5)]" 
                       : "w-8 bg-[#0071E3] shadow-[0_0_10px_rgba(0,113,227,0.3)]"
                     : isDark 
-                      ? "w-2 bg-[#415A77] hover:bg-[#06B6D4]" 
-                      : "w-2 bg-[#D5D5D7] hover:bg-[#0071E3]"
+                      ? "w-2 bg-[#415A77] hover:bg-[#06B6D4] cursor-pointer" 
+                      : "w-2 bg-[#D5D5D7] hover:bg-[#0071E3] cursor-pointer"
                 }`}
                 aria-label={`Go to slide ${idx + 1}`}
               />

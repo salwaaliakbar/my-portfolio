@@ -23,14 +23,12 @@ function ProjectCard({ project }: ProjectCardProps) {
     >
       {/* Gradient Top Border */}
       <div className="flex">
-        <div className="flex">
-          <div
-            className={`h-1 w-1/2 ${isDark ? "bg-linear-to-r from-transparent via-[#06B6D4] to-[#0EA5E9]" : "bg-linear-to-r from-transparent via-[#0071E3] to-[#0077ED]"}`}
-          ></div>
-          <div
-            className={`h-1 w-1/2 ${isDark ? "bg-linear-to-r from-[#0EA5E9] to-transparent" : "bg-linear-to-r from-[#0077ED] to-transparent"}`}
-          ></div>
-        </div>
+        <div
+          className={`h-1 w-1/2 ${isDark ? "bg-linear-to-r from-transparent via-[#06B6D4] to-[#0EA5E9]" : "bg-linear-to-r from-transparent via-[#0071E3] to-[#0077ED]"}`}
+        ></div>
+        <div
+          className={`h-1 w-1/2 ${isDark ? "bg-linear-to-r from-[#0EA5E9] to-transparent" : "bg-linear-to-r from-[#0077ED] to-transparent"}`}
+        ></div>
       </div>
 
       {/* Terminal Header */}
