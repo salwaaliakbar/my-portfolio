@@ -23,12 +23,14 @@ function ProjectCard({ project }: ProjectCardProps) {
     >
       {/* Gradient Top Border */}
       <div className="flex">
-        <div
-          className={`h-1 w-1/2 ${isDark ? "bg-linear-to-r from-transparent via-[#06B6D4] to-[#0EA5E9]" : "bg-linear-to-r from-transparent via-[#0071E3] to-[#0077ED]"}`}
-        ></div>
-        <div
-          className={`h-1 w-1/2 ${isDark ? "bg-linear-to-r-to-r from-[#0EA5E9] to-transparent" : "bg-linear-to-r from-[#0077ED] to-transparent"}`}
-        ></div>
+        <div className="flex">
+          <div
+            className={`h-1 w-1/2 ${isDark ? "bg-linear-to-r from-transparent via-[#06B6D4] to-[#0EA5E9]" : "bg-linear-to-r from-transparent via-[#0071E3] to-[#0077ED]"}`}
+          ></div>
+          <div
+            className={`h-1 w-1/2 ${isDark ? "bg-linear-to-r from-[#0EA5E9] to-transparent" : "bg-linear-to-r from-[#0077ED] to-transparent"}`}
+          ></div>
+        </div>
       </div>
 
       {/* Terminal Header */}
@@ -61,7 +63,9 @@ function ProjectCard({ project }: ProjectCardProps) {
           <p className="pl-4 mt-1">
             <span className="text-[#EC4899]">name</span>:{" "}
             <span className={isDark ? "text-[#E0E1DD]" : "text-[#1D1D1F]"}>
-              {'"'}{project.name}{'"'}
+              {'"'}
+              {project.name}
+              {'"'}
             </span>
             ,
           </p>
@@ -69,7 +73,9 @@ function ProjectCard({ project }: ProjectCardProps) {
           <p className="pl-4 mt-1">
             <span className="text-[#EC4899]">role</span>:{" "}
             <span className={isDark ? "text-[#34C759]" : "text-[#34C759]"}>
-              {'"'}{project.role}{'"'}
+              {'"'}
+              {project.role}
+              {'"'}
             </span>
             ,
           </p>
@@ -84,7 +90,10 @@ function ProjectCard({ project }: ProjectCardProps) {
                 key={i}
                 className={isDark ? "text-[#E0E1DD]" : "text-[#1D1D1F]"}
               >
-                {'"'}{tool}{'"'}{i < project.tools.length - 1 ? "," : ""}
+                {'"'}
+                {tool}
+                {'"'}
+                {i < project.tools.length - 1 ? "," : ""}
               </p>
             ))}
           </div>
@@ -94,7 +103,9 @@ function ProjectCard({ project }: ProjectCardProps) {
           <p className="pl-4 mt-1">
             <span className="text-[#EC4899]">description</span>:{" "}
             <span className={isDark ? "text-[#E0E1DD]" : "text-[#1D1D1F]"}>
-              {'"'}{project.description}{'"'}
+              {'"'}
+              {project.description}
+              {'"'}
             </span>
             ,
           </p>
