@@ -19,7 +19,7 @@
 }
 
 :root[data-theme="light"] {
-  --background: #D0E8F2;
+  --background: #E8F4FA;
   --foreground: #1D1D1F;
   --primary: #D5D5D7; /* borders */
   --accent: #86868B;  /* secondary text */
