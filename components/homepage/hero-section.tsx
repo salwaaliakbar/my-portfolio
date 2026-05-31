@@ -46,17 +46,14 @@ function HeroSection() {
             <p
               className={`text-xl md:text-2xl animate-fade-in-up animation-delay-400 mt-2 mb-4 transition-colors duration-300 ${isDark ? "text-gray-400" : "text-[#86868B]"}`}
             >
-              Full Stack AI Developer
+              AI-Powered Full Stack Developer
             </p>
           </h1>
 
           <p
             className={`text-sm md:text-base mt-4 max-w-2xl leading-relaxed animate-fade-in-up animation-delay-200 transition-colors duration-300`}
           >
-            I{"'"}m a passionate full stack developer specializing in AI-powered
-            applications. I build scalable web solutions with modern
-            technologies like React, Node.js, and TypeScript. I love solving
-            complex problems and creating seamless user experiences.
+            {personalData.description}
           </p>
 
           <div className="my-8 flex items-center gap-4">

@@ -1,7 +1,7 @@
 export const personalData = {
   name: "Salwa Ansari",
   profile: '/assets/profile pic.jpg',
-  designation: "AI-Powered full stack Engineer",
+  designation: "AI-Powered full stack Developer",
   description: "AI-Powered Full Stack Developer with 3+ years of hands-on experience in developing scalable web applications and intelligent systems. Strong background in MERN stack, RESTful APIs, and AI/ML integration, including NLP and deep learning models. Passionate about building production-ready, user-focused, and data-driven solutions",
   email: 'salwaaliakbar22@gmail.com',
   phone: '+92 333 7126809',
