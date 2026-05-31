@@ -10,5 +10,5 @@ export const personalData = {
   facebook: '',
   linkedIn: 'https://www.linkedin.com/in/salwa-ali-akbar-b55404240/',
   devUsername: "salwaaliakbar",
-  resume: "https://docs.google.com/document/d/1_AIFnr3WM1ZWjzXYxvKsZS-vXhA_iVD-/edit?usp=sharing&ouid=107367084917729060264&rtpof=true&sd=true"
+  resume: "https://drive.google.com/file/d/11O53UcCiOcTWX4NXhkfzyuIuX_ivswcy/view?usp=sharing"
 }
