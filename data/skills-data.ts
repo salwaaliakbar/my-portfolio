@@ -53,6 +53,8 @@ export const categorizedSkills = [
       { name: "Pandas", proficiency: 85 },
       { name: "Opencv", proficiency: 70 },
       { name: "NLP", proficiency: 75 },
+      { name: "Transformers", proficiency: 70 },
+      { name: "BERT", proficiency: 70 },
     ]
   },
   {
@@ -75,6 +77,8 @@ export const categorizedSkills = [
       { name: "Express JS", proficiency: 85 },
       { name: "Fast API", proficiency: 75 },
       { name: "REST API", proficiency: 85 },
+      { name: "GraphQL", proficiency: 75 },
+      { name: "JWT Authentication", proficiency: 80 },
       { name: "MongoDB", proficiency: 80 },
       { name: "PostgreSQL", proficiency: 75 },
       { name: "Prisma", proficiency: 70 },
@@ -82,13 +86,16 @@ export const categorizedSkills = [
     ]
   },
   {
-    category: "Mobile & Tools",
+    category: "Mobile, DevOps & Tools",
     skills: [
       { name: "Flutter", proficiency: 75 },
       { name: "Git", proficiency: 85 },
       { name: "GitHub", proficiency: 85 },
+      { name: "Docker", proficiency: 75 },
+      { name: "CI/CD", proficiency: 75 },
       { name: "Postman", proficiency: 80 },
       { name: "Vercel", proficiency: 80 },
+      { name: "Render", proficiency: 75 },
       { name: "Jest", proficiency: 70 },
     ]
   }

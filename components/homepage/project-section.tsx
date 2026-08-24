@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { motion } from "framer-motion";
 import { useTheme } from "../../context/ThemeContext";
 import { projectsData } from "../../data/projects-data";
 import ProjectCard from "../ui/project-card";
@@ -30,19 +31,29 @@ function Projects() {
   return (
     <div id="projects" className="relative z-50 my-12 lg:my-24 w-full">
       <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center gap-4 mb-10">
+        <motion.div
+          className="flex items-center gap-4 mb-10"
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.4 }}
+          transition={{ duration: 0.5 }}
+        >
           <p
-            className={`px-4 py-2 md:text-xs rounded-full font-mono text-sm tracking-wider animate-fade-in-up transition-colors duration-300 ${isDark ? "bg-[#1B263B] text-[#06B6D4]" : "bg-[#E5E5E7] text-[#0071E3]"}`}
+            className={`px-4 py-2 md:text-xs rounded-full font-mono text-sm tracking-wider transition-colors duration-300 ${isDark ? "bg-[#1B263B] text-[#06B6D4]" : "bg-[#E5E5E7] text-[#0071E3]"}`}
           >
             $ ls projects/
           </p>
           <span
             className={`h-0.5 flex-1 rounded-full transition-colors duration-300 ${isDark ? "bg-linear-to-r from-[#06B6D4] via-[#0EA5E9] to-transparent" : "bg-linear-to-r from-[#0071E3] via-[#0077ED] to-transparent"}`}
           ></span>
-        </div>
+        </motion.div>
 
-        <h2
+        <motion.h2
           className={`text-2xl md:text-4xl font-bold leading-tight mb-12 transition-colors duration-300 ${isDark ? "text-[#E0E1DD]" : "text-[#1D1D1F]"}`}
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.4 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
         >
           Things I{"'"}ve{" "}
           <span
@@ -50,33 +61,37 @@ function Projects() {
           >
             Built
           </span>
-        </h2>
+        </motion.h2>
       </div>
 
       {/* Slider Container */}
       <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Navigation Buttons */}
-        <button
+        <motion.button
           onClick={handlePrev}
           disabled={isAnimating || currentIndex === 0}
+          whileHover={{ scale: 1.08 }}
+          whileTap={{ scale: 0.95 }}
           className={`hidden lg:flex absolute -left-4 xl:-left-16 top-1/2 -translate-y-1/2 z-20 p-4 rounded-full transition-all duration-300 disabled:opacity-30 disabled:cursor-not-allowed items-center justify-center group ${isDark ? "bg-[#1B263B] border border-[#415A77] text-[#06B6D4] hover:bg-[#0D1B2A] hover:border-[#06B6D4] hover:shadow-[0_0_30px_rgba(6,182,212,0.3)] disabled:hover:shadow-none" : "bg-white border border-[#D5D5D7] text-[#0071E3] hover:bg-[#F5F5F7] hover:border-[#0071E3] hover:shadow-[0_8px_30px_rgba(0,113,227,0.2)] disabled:hover:shadow-none"}`}
           aria-label="Previous"
         >
           <svg className="w-6 h-6 transition-transform group-hover:-translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 19l-7-7 7-7" />
           </svg>
-        </button>
+        </motion.button>
 
-        <button
+        <motion.button
           onClick={handleNext}
           disabled={isAnimating || currentIndex >= maxIndex}
+          whileHover={{ scale: 1.08 }}
+          whileTap={{ scale: 0.95 }}
           className={`hidden lg:flex absolute -right-4 xl:-right-16 top-1/2 -translate-y-1/2 z-20 p-4 rounded-full transition-all duration-300 disabled:opacity-30 disabled:cursor-not-allowed items-center justify-center group ${isDark ? "bg-[#1B263B] border border-[#415A77] text-[#06B6D4] hover:bg-[#0D1B2A] hover:border-[#06B6D4] hover:shadow-[0_0_30px_rgba(6,182,212,0.3)] disabled:hover:shadow-none" : "bg-white border border-[#D5D5D7] text-[#0071E3] hover:bg-[#F5F5F7] hover:border-[#0071E3] hover:shadow-[0_8px_30px_rgba(0,113,227,0.2)] disabled:hover:shadow-none"}`}
           aria-label="Next"
         >
           <svg className="w-6 h-6 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
           </svg>
-        </button>
+        </motion.button>
 
         {/* Cards Container */}
         <div className="overflow-hidden">
@@ -86,7 +101,7 @@ function Projects() {
               transform: `translateX(-${currentIndex * 100}%)`
             }}
           >
-            {projectsData.slice(0, 4).map((project, index) => (
+            {projectsData.map((project, index) => (
               <div
                 key={index}
                 className="w-full shrink-0"
@@ -124,8 +139,8 @@ function Projects() {
         </div>
 
         {/* Dots Indicator */}
-        <div className="flex justify-center gap-2 mt-8">
-          {projectsData.slice(0, 4).map((_, idx) => (
+        <div className="flex justify-center gap-2 mt-8 flex-wrap">
+          {projectsData.map((_, idx) => (
             <button
               key={idx}
               onClick={() => {

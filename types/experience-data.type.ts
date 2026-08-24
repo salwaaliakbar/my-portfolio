@@ -1,6 +1,6 @@
 interface ExperienceData {
     id: number;
-    role: string;
+    title: string;
     company: string;
     duration: string;
     description: string;

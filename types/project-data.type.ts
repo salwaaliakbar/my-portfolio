@@ -6,6 +6,7 @@ interface ProjectData {
     role: string;
     code?: string;
     demo?: string;
+    status?: string;
 }
 
 export type { ProjectData };

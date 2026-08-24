@@ -2,11 +2,24 @@
 
 import { personalData } from "../../data/personal-data";
 import Link from "next/link";
+import { motion, type Variants } from "framer-motion";
 import { BsGithub, BsLinkedin } from "react-icons/bs";
 import { FaFacebook } from "react-icons/fa";
 import { MdDownload } from "react-icons/md";
 import { RiContactsFill } from "react-icons/ri";
 import { useTheme } from "../../context/ThemeContext";
+
+const containerVariants: Variants = {
+  hidden: {},
+  show: {
+    transition: { staggerChildren: 0.15, delayChildren: 0.1 },
+  },
+};
+
+const itemVariants: Variants = {
+  hidden: { opacity: 0, y: 24 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+};
 
 function HeroSection() {
   const { theme } = useTheme();
@@ -23,19 +36,25 @@ function HeroSection() {
       </div>
 
       <div className="w-full max-w-6xl mx-auto grid grid-cols-1 items-start lg:grid-cols-[1.05fr_0.95fr] lg:gap-12 gap-y-8 pt-8 lg:pt-12 px-4 sm:px-6 lg:px-0">
-        <div className="order-2 lg:order-1 flex flex-col items-start justify-center pb-10 md:pb-10 lg:pt-0">
-          <div className="flex items-center">
+        <motion.div
+          className="order-2 lg:order-1 flex flex-col items-start justify-center pb-10 md:pb-10 lg:pt-0"
+          variants={containerVariants}
+          initial="hidden"
+          animate="show"
+        >
+          <motion.div className="flex items-center" variants={itemVariants}>
             <p
-              className={`px-4 py-2 md:text-xs rounded-full font-mono text-sm tracking-wider animate-fade-in-up mb-2 transition-colors duration-300 ${isDark ? "bg-[#1B263B] text-[#06B6D4]" : "bg-[#E5E5E7] text-[#0071E3]"}`}
+              className={`px-4 py-2 md:text-xs rounded-full font-mono text-sm tracking-wider mb-2 transition-colors duration-300 ${isDark ? "bg-[#1B263B] text-[#06B6D4]" : "bg-[#E5E5E7] text-[#0071E3]"}`}
             >
               $ whoami/
             </p>
             <span
               className={`h-2 flex-1 transition-colors duration-300 ${isDark ? "bg-linear-to-r from-[#06B6D4] via-[#0EA5E9] to-transparent" : "bg-linear-to-r from-[#0071E3] via-[#0077ED] to-transparent"}`}
             ></span>
-          </div>
-          <h1
+          </motion.div>
+          <motion.h1
             className={`text-4xl md:text-5xl font-bold md:font-extrabold lg:text-5xl leading-tight transition-colors duration-300 ${isDark ? "text-[#E0E1DD]" : "text-[#1D1D1F]"}`}
+            variants={itemVariants}
           >
             Hi, I {"'"}m{" "}
             <span
@@ -44,19 +63,20 @@ function HeroSection() {
               {personalData.name}
             </span>
             <p
-              className={`text-xl md:text-2xl animate-fade-in-up animation-delay-400 mt-2 mb-4 transition-colors duration-300 ${isDark ? "text-gray-400" : "text-[#86868B]"}`}
+              className={`text-xl md:text-2xl mt-2 mb-4 transition-colors duration-300 ${isDark ? "text-gray-400" : "text-[#86868B]"}`}
             >
-              AI-Powered Full Stack Developer
+              {personalData.designation}
             </p>
-          </h1>
+          </motion.h1>
 
-          <p
-            className={`text-sm md:text-base mt-4 max-w-2xl leading-relaxed animate-fade-in-up animation-delay-200 transition-colors duration-300`}
+          <motion.p
+            className={`text-sm md:text-base mt-4 max-w-2xl leading-relaxed transition-colors duration-300`}
+            variants={itemVariants}
           >
             {personalData.description}
-          </p>
+          </motion.p>
 
-          <div className="my-8 flex items-center gap-4">
+          <motion.div className="my-8 flex items-center gap-4" variants={itemVariants}>
             <Link
               href={personalData.github}
               target="_blank"
@@ -78,9 +98,9 @@ function HeroSection() {
             >
               <FaFacebook size={24} />
             </Link>
-          </div>
+          </motion.div>
 
-          <div className="flex items-center gap-2 md:gap-3 flex-wrap">
+          <motion.div className="flex items-center gap-2 md:gap-3 flex-wrap" variants={itemVariants}>
             <Link
               href="#contact"
               className="bg-linear-to-r to-[#0EA5E9] from-[#06B6D4] p-px rounded-full transition-all duration-300 hover:from-[#22D3EE] hover:to-[#38BDF8] shadow-[0_0_20px_rgba(6,182,212,0.3)] hover:shadow-[0_0_30px_rgba(6,182,212,0.6)]"
@@ -102,11 +122,16 @@ function HeroSection() {
               <span>Get Resume</span>
               <MdDownload size={14} />
             </Link>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
         {/* Right Column - Terminal Card */}
-        <div className="order-1 lg:order-2">
+        <motion.div
+          className="order-1 lg:order-2"
+          initial={{ opacity: 0, x: 40, scale: 0.96 }}
+          animate={{ opacity: 1, x: 0, scale: 1 }}
+          transition={{ duration: 0.7, delay: 0.3, ease: "easeOut" }}
+        >
           <div
             className={`h-full rounded-2xl overflow-hidden transition-all duration-300 ${isDark ? "bg-linear-to-br from-[#1B263B] to-[#0D1B2A] border border-[#415A77] shadow-[0_8px_32px_rgba(0,0,0,0.4)]" : "bg-linear-to-br from-white to-[#F5F5F7] border border-[#D5D5D7] shadow-[0_8px_32px_rgba(0,0,0,0.08)]"}`}
           >
@@ -245,7 +270,7 @@ function HeroSection() {
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

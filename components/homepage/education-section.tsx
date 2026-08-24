@@ -1,5 +1,6 @@
 "use client";
 
+import { motion } from "framer-motion";
 import { educations } from "../../data/education-data";
 import { useTheme } from "../../context/ThemeContext";
 
@@ -16,10 +17,16 @@ function Education() {
         </div>
         
       <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 lg:pt-16">
-        <div className="flex items-center gap-4 mb-10">
-          <p className={`px-4 py-2 md:text-xs rounded-full font-mono text-sm tracking-wider animate-fade-in-up transition-colors duration-300 ${isDark ? "bg-[#1B263B] text-[#06B6D4]" : "bg-[#E5E5E7] text-[#0071E3]"}`}>$ ls education/</p>
+        <motion.div
+          className="flex items-center gap-4 mb-10"
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.4 }}
+          transition={{ duration: 0.5 }}
+        >
+          <p className={`px-4 py-2 md:text-xs rounded-full font-mono text-sm tracking-wider transition-colors duration-300 ${isDark ? "bg-[#1B263B] text-[#06B6D4]" : "bg-[#E5E5E7] text-[#0071E3]"}`}>$ ls education/</p>
           <span className={`h-2 flex-1 transition-colors duration-300 ${isDark ? "bg-linear-to-r from-[#06B6D4] via-[#0EA5E9] to-transparent" : "bg-linear-to-r from-[#0071E3] via-[#0077ED] to-transparent"}`}></span>
-        </div>
+        </motion.div>
         <h2 className={`text-2xl md:text-4xl font-bold leading-tight mb-6 transition-colors duration-300 ${isDark ? "text-[#E0E1DD]" : "text-[#1D1D1F]"}`}>
           Education <span className={`bg-linear-to-r bg-clip-text text-transparent transition-all duration-300 ${isDark ? "from-[#06B6D4] via-[#0EA5E9] to-[#06B6D4] drop-shadow-[0_0_12px_rgba(6,182,212,0.5)]" : "from-[#0071E3] via-[#0077ED] to-[#0071E3] drop-shadow-[0_0_12px_rgba(0,113,227,0.4)]"}`}>Journey</span>
         </h2>
@@ -35,7 +42,13 @@ function Education() {
             {educations.map((edu, index) => (
               <div key={edu.id} className={`relative mb-12 flex flex-col lg:flex-row ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} pl-8 lg:pl-0`}>
                 {/* Left/Right Content - 45% width on desktop, full width on mobile */}
-                <div className={`w-full lg:w-1/2 ${index % 2 === 0 ? 'lg:pr-8 lg:text-right text-left' : 'lg:pl-8 text-left'}`}>
+                <motion.div
+                  className={`w-full lg:w-1/2 ${index % 2 === 0 ? 'lg:pr-8 lg:text-right text-left' : 'lg:pl-8 text-left'}`}
+                  initial={{ opacity: 0, x: index % 2 === 0 ? -40 : 40 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true, amount: 0.3 }}
+                  transition={{ duration: 0.6, ease: "easeOut" }}
+                >
                   <div>
                     <span className={`font-mono text-sm font-medium transition-colors duration-300 ${isDark ? "text-[#06B6D4]" : "text-[#0071E3]"}`}>{edu.duration}</span>
                     <h3 className={`text-lg font-bold mt-1 transition-colors duration-300 ${isDark ? "text-[#E0E1DD]" : "text-[#1D1D1F]"}`}>{edu.title}</h3>
@@ -44,14 +57,20 @@ function Education() {
                       <p className={`text-xs mb-2 transition-colors duration-300 ${isDark ? "text-gray-400" : "text-[#86868B]"}`}>CGPA: {edu.cgpa}</p>
                     )}
                   </div>
-                </div>
+                </motion.div>
 
                 {/* Center Timeline Dot - Hidden on mobile, visible on desktop */}
                 <div className="hidden lg:flex w-0 justify-center">
                     <div className="relative flex items-center justify-center">
-                    <div className={`w-5 h-5 rounded-full border-3 flex items-center justify-center z-10 transition-colors duration-300 ${isDark ? "border-[#415A77] bg-[#0D1B2A]" : "border-[#D5D5D7] bg-[#FFFFFF]"}`}>
+                    <motion.div
+                      className={`w-5 h-5 rounded-full border-3 flex items-center justify-center z-10 transition-colors duration-300 ${isDark ? "border-[#415A77] bg-[#0D1B2A]" : "border-[#D5D5D7] bg-[#FFFFFF]"}`}
+                      initial={{ scale: 0, opacity: 0 }}
+                      whileInView={{ scale: 1, opacity: 1 }}
+                      viewport={{ once: true, amount: 0.5 }}
+                      transition={{ duration: 0.4, ease: "backOut" }}
+                    >
                       <div className="w-2.5 h-2.5 rounded-full bg-green-500"></div>
-                    </div>
+                    </motion.div>
                   </div>
                 </div>
 

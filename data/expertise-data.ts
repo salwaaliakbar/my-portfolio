@@ -56,13 +56,13 @@ export const expertiseData: ExpertiseData[] = [
   {
     category: "Backend & Systems",
     title: "Backend & APIs",
-    description: "RESTful APIs, FastAPI, Microservices & CI/CD Pipelines",
+    description: "RESTful APIs, GraphQL, Microservices & CI/CD Pipelines",
     avgProficiency: 87,
     topSkills: [
       { name: "REST API", level: "Expert", proficiency: 95 },
       { name: "Fast API", level: "Expert", proficiency: 90 },
-      { name: "GitHub Actions", level: "Advanced", proficiency: 85 },
-      { name: "Java", level: "Advanced", proficiency: 85 },
+      { name: "GraphQL", level: "Advanced", proficiency: 80 },
+      { name: "Docker", level: "Advanced", proficiency: 80 },
     ],
     color: "from-[#10B981] to-[#06B6D4]"
   },

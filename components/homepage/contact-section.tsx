@@ -2,6 +2,7 @@
 
 import { personalData } from '../../data/personal-data';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 import { BiLogoLinkedin } from "react-icons/bi";
 import { CiLocationOn } from "react-icons/ci";
 import { FaFacebook } from 'react-icons/fa';
@@ -17,19 +18,44 @@ function ContactSection() {
   return (
     <div id="contact" className="relative z-50 my-12 lg:my-24 w-full">
       <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">      
-        <div className="flex items-center gap-4 mb-10">
-          <p className={`px-4 py-2 md:text-xs rounded-full font-mono text-sm tracking-wider animate-fade-in-up mt-4 mb-2 transition-colors duration-300 ${isDark ? "bg-[#1B263B] text-[#06B6D4]" : "bg-[#E5E5E7] text-[#0071E3]"}`}>$ ls contact/</p>
+        <motion.div
+          className="flex items-center gap-4 mb-10"
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.4 }}
+          transition={{ duration: 0.5 }}
+        >
+          <p className={`px-4 py-2 md:text-xs rounded-full font-mono text-sm tracking-wider mt-4 mb-2 transition-colors duration-300 ${isDark ? "bg-[#1B263B] text-[#06B6D4]" : "bg-[#E5E5E7] text-[#0071E3]"}`}>$ ls contact/</p>
           <span className={`h-2 flex-1 transition-colors duration-300 ${isDark ? "bg-linear-to-r from-[#06B6D4] via-[#0EA5E9] to-transparent" : "bg-linear-to-r from-[#0071E3] via-[#0077ED] to-transparent"}`}></span>
-        </div>
+        </motion.div>
 
-        <h2 className={`text-2xl md:text-4xl font-bold leading-tight mb-6 transition-colors duration-300 ${isDark ? "text-[#E0E1DD]" : "text-[#1D1D1F]"}`}>
+        <motion.h2
+          className={`text-2xl md:text-4xl font-bold leading-tight mb-6 transition-colors duration-300 ${isDark ? "text-[#E0E1DD]" : "text-[#1D1D1F]"}`}
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.4 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+        >
             Let{"'"}s <span className={`bg-linear-to-r bg-clip-text text-transparent transition-all duration-300 ${isDark ? "from-[#06B6D4] via-[#0EA5E9] to-[#06B6D4] drop-shadow-[0_0_12px_rgba(6,182,212,0.5)]" : "from-[#0071E3] via-[#0077ED] to-[#0071E3] drop-shadow-[0_0_12px_rgba(0,113,227,0.4)]"}`}>Connect</span>
-          </h2>
+          </motion.h2>
 
 
         <div className={`pt-6 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center transition-colors duration-300 ${isDark ? "text-[#E0E1DD]" : "text-[#1D1D1F]"}`}>
-          <ContactForm />
-          <div className="lg:w-3/4">
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+          >
+            <ContactForm />
+          </motion.div>
+          <motion.div
+            className="lg:w-3/4"
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6, ease: "easeOut", delay: 0.15 }}
+          >
             <div className="flex flex-col gap-5 lg:gap-9">
               <p className="text-sm md:text-xl flex items-center gap-3">
                 <MdAlternateEmail
@@ -77,7 +103,7 @@ function ContactSection() {
                 />
               </Link>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </div>

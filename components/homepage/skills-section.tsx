@@ -4,6 +4,7 @@ import { skillsData } from "../../data/skills-data";
 import { expertiseData } from "../../data/expertise-data";
 import { skillsImage } from "../../utils/skills-image";
 import Image from "next/image";
+import { motion } from "framer-motion";
 import React, { useState, useEffect } from "react";
 import { useTheme } from "../../context/ThemeContext";
 
@@ -55,19 +56,31 @@ function Skills() {
     <div id="skills" className={`relative z-50 px-2 py-2 lg:py-4 transition-colors duration-300`}>
       <div className="w-full max-w-6xl mx-auto px-2 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="flex items-center gap-4 mb-8">
+        <motion.div
+          className="flex items-center gap-4 mb-8"
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.4 }}
+          transition={{ duration: 0.5 }}
+        >
           <p className={`px-4 py-2 text-xs md:text-sm rounded-full font-mono tracking-wider transition-colors duration-300 ${isDark ? "bg-[#1B263B] text-[#06B6D4]" : "bg-[#E5E5E7] text-[#0071E3]"}`}>
             $ ls skills/
           </p>
           <div className={`h-0.5 flex-1 rounded-full transition-colors duration-300 ${isDark ? "bg-linear-to-r from-[#06B6D4] via-[#0EA5E9] to-transparent" : "bg-linear-to-r from-[#0071E3] via-[#0077ED] to-transparent"}`}></div>
-        </div>
+        </motion.div>
 
-        <h2 className={`text-2xl md:text-4xl font-bold mb-12 transition-colors duration-300 ${isDark ? "text-white" : "text-[#1D1D1F]"}`}>
+        <motion.h2
+          className={`text-2xl md:text-4xl font-bold mb-12 transition-colors duration-300 ${isDark ? "text-white" : "text-[#1D1D1F]"}`}
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.4 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+        >
           My{" "}
           <span className={`bg-linear-to-r bg-clip-text text-transparent transition-all duration-300 ${isDark ? "from-[#06B6D4] via-[#0EA5E9] to-[#06B6D4] drop-shadow-[0_0_12px_rgba(6,182,212,0.5)]" : "from-[#0071E3] via-[#0077ED] to-[#0071E3] drop-shadow-[0_0_12px_rgba(0,113,227,0.4)]"}`}>
             Tech Stack
           </span>
-        </h2>
+        </motion.h2>
 
         {/* Marquee - Hidden on mobile for better performance */}
         <div className="hidden md:block w-full mb-16 overflow-hidden">
@@ -134,7 +147,13 @@ function Skills() {
                     key={idx}
                     className="w-full lg:w-1/3 shrink-0 sm:px-2"
                   >
-                    <div className={`h-full rounded-2xl overflow-hidden transition-all duration-300 ${isDark ? "bg-linear-to-br from-[#1B263B] to-[#0D1B2A] border border-[#415A77] shadow-[0_8px_32px_rgba(0,0,0,0.4)]" : "bg-linear-to-br from-white to-[#F5F5F7] border border-[#D5D5D7] shadow-[0_8px_32px_rgba(0,0,0,0.08)]"}`}>
+                    <motion.div
+                      className={`h-full rounded-2xl overflow-hidden transition-all duration-300 ${isDark ? "bg-linear-to-br from-[#1B263B] to-[#0D1B2A] border border-[#415A77] shadow-[0_8px_32px_rgba(0,0,0,0.4)]" : "bg-linear-to-br from-white to-[#F5F5F7] border border-[#D5D5D7] shadow-[0_8px_32px_rgba(0,0,0,0.08)]"}`}
+                      initial={{ opacity: 0, y: 24, scale: 0.97 }}
+                      whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                      viewport={{ once: true, amount: 0.3 }}
+                      transition={{ duration: 0.5, delay: (idx % 3) * 0.1 }}
+                    >
                       {/* Gradient Top Border */}
                       <div className="flex">
                         <div className={`h-1 w-1/2 ${isDark ? "bg-linear-to-r from-transparent via-[#06B6D4] to-[#0EA5E9]" : "bg-linear-to-r from-transparent via-[#0071E3] to-[#0077ED]"}`}></div>
@@ -183,9 +202,12 @@ function Skills() {
                                   </span>
                                 </div>
                                 <div className={`h-2 rounded-full overflow-hidden ${isDark ? "bg-[#0D1B2A]" : "bg-[#E5E5E7]"}`}>
-                                  <div
-                                    className={`h-full rounded-full transition-all duration-1000 ${isDark ? "bg-linear-to-r from-[#06B6D4] to-[#0EA5E9] shadow-[0_0_10px_rgba(6,182,212,0.5)]" : "bg-linear-to-r from-[#0071E3] to-[#0077ED] shadow-[0_0_10px_rgba(0,113,227,0.3)]"}`}
-                                    style={{ width: `${skill.proficiency}%` }}
+                                  <motion.div
+                                    className={`h-full rounded-full ${isDark ? "bg-linear-to-r from-[#06B6D4] to-[#0EA5E9] shadow-[0_0_10px_rgba(6,182,212,0.5)]" : "bg-linear-to-r from-[#0071E3] to-[#0077ED] shadow-[0_0_10px_rgba(0,113,227,0.3)]"}`}
+                                    initial={{ width: 0 }}
+                                    whileInView={{ width: `${skill.proficiency}%` }}
+                                    viewport={{ once: true, amount: 0.5 }}
+                                    transition={{ duration: 1, ease: "easeOut" }}
                                   />
                                 </div>
                               </div>
@@ -200,7 +222,7 @@ function Skills() {
                           $ <span className={`w-2 h-4 animate-pulse bg-[#EC4899]`} />
                         </div>
                       </div>
-                    </div>
+                    </motion.div>
                   </div>
                 ))}
               </div>

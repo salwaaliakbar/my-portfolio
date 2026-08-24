@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import Link from "next/link";
+import { motion } from "framer-motion";
 import { BsGithub } from "react-icons/bs";
 import { HiOutlineExternalLink } from "react-icons/hi";
 import { ProjectData } from "../../types/project-data.type";
@@ -16,9 +17,12 @@ function ProjectCard({ project }: ProjectCardProps) {
   const isDark = theme === "dark";
   const codeEnabled = Boolean(project.code);
   const demoEnabled = Boolean(project.demo);
+  const status = project.status ?? "completed";
 
   return (
-    <div
+    <motion.div
+      whileHover={{ y: -6 }}
+      transition={{ duration: 0.3, ease: "easeOut" }}
       className={`h-full min-h-[500px] rounded-2xl overflow-hidden transition-all duration-300 flex flex-col ${isDark ? "bg-linear-to-br from-[#1B263B] to-[#0D1B2A] border border-[#415A77] shadow-[0_8px_32px_rgba(0,0,0,0.4)]" : "bg-linear-to-br from-white to-[#F5F5F7] border border-[#D5D5D7] shadow-[0_8px_32px_rgba(0,0,0,0.08)]"}`}
     >
       {/* Gradient Top Border */}
@@ -110,8 +114,8 @@ function ProjectCard({ project }: ProjectCardProps) {
 
           <p className="pl-4 mt-1">
             <span className="text-[#EC4899]">status</span>:{" "}
-            <span className={isDark ? "text-[#34C759]" : "text-[#34C759]"}>
-              completed
+            <span className={status === "completed" ? "text-[#34C759]" : "text-[#F59E0B]"}>
+              {status}
             </span>
             ,
           </p>
@@ -166,7 +170,7 @@ function ProjectCard({ project }: ProjectCardProps) {
           )}
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 
