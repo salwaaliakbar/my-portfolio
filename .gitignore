@@ -33,12 +33,10 @@ yarn-error.log*
 .pnpm-debug.log*
 
 # env files (can opt-in for committing if needed)
-.env*
 =======
 
 # local env files
 .env*.local
-.env
 >>>>>>> 88b5a4befc98ac93d2c36a9e90752f713dd6179e
 
 # vercel
@@ -47,3 +45,4 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+config.bat
