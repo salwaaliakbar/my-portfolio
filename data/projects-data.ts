@@ -14,7 +14,7 @@ export const projectsData = [
         tools: ['Next.js', 'TypeScript', 'Node.js', 'Express', 'PostgreSQL', 'MongoDB', 'FastAPI', 'Python'],
         role: 'Full Stack AI Developer',
         code: 'https://drive.google.com/file/d/1KxIcOe8FBo2uvVICIw9V4A4aj2LfIHaF/view?usp=drive_link',
-        demo: 'https://drive.google.com/file/d/1g2t0vXb-t7qq8Q-x_lRF7cl_qfS1Zx8u/view?usp=sharing',
+        demo: 'https://career-trust-frontend.vercel.app/',
     },
     {
         id: 3,
