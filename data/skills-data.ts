@@ -18,6 +18,7 @@ export const skillsData = [
   'GitHub',
   'GitHub Actions',
   'Vercel',
+  'Firebase',
   'dart',
   'Flutter',
   'Postman',

@@ -1,8 +1,8 @@
 export const personalData = {
   name: "Salwa Ansari",
   profile: '/assets/profile pic.jpg',
-  designation: "Associate Software Engineer | AI-Powered Full Stack Developer",
-  description: "AI-Powered Full Stack Developer with hands-on experience building and deploying scalable web applications and AI-driven solutions. Proficient in React.js, Next.js, TypeScript, Node.js, Express.js, Python, PostgreSQL, and MongoDB, with expertise in RESTful APIs, AI/ML integration, microservices, and cloud deployment. Seeking to contribute strong problem-solving and full-stack engineering skills to building reliable, scalable, and intelligent software solutions.",
+  designation: "Associate Software Engineer | AI-Focused Full Stack Developer | LLM & Agentic Systems",
+  description: "AI-focused Full Stack Developer building production web applications and AI-powered products with React, Next.js, JavaScript, TypeScript, Node.js, Python, PostgreSQL, and MongoDB. Experienced in LLM application development, RAG, embeddings, semantic search, multi-agent systems, context engineering, prompt engineering, payment integrations, and AI-assisted software engineering. Currently developing an AI-driven robo-advisory platform at Quantree.",
   email: 'salwaaliakbar22@gmail.com',
   phone: '+92 333 7126809',
   address: 'Karachi, Sindh, Pakistan',
@@ -10,5 +10,5 @@ export const personalData = {
   facebook: '',
   linkedIn: 'https://www.linkedin.com/in/salwa-ali-akbar-b55404240/',
   devUsername: "salwaaliakbar",
-  resume: "https://drive.google.com/file/d/1GzljnPnTciFt0OCS04Z-tY2-wQRCaSTM/view?usp=sharing"
+  resume: "https://drive.google.com/file/d/1zPKR1T18xn99Fv-XWoLEngTWCdjziQbb/view?usp=sharing"
 }

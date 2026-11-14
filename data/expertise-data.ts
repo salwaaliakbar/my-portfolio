@@ -15,9 +15,22 @@ interface ExpertiseData {
 
 export const expertiseData: ExpertiseData[] = [
   {
+    category: "Generative AI & LLMs",
+    title: "Generative AI & LLMs",
+    description: "RAG, embeddings, semantic search, multi-agent workflows & context engineering",
+    avgProficiency: 87,
+    topSkills: [
+      { name: "RAG Systems", level: "Advanced", proficiency: 88 },
+      { name: "Embeddings & Semantic Search", level: "Advanced", proficiency: 85 },
+      { name: "Prompt & Context Engineering", level: "Expert", proficiency: 90 },
+      { name: "Multi-Agent Workflows", level: "Advanced", proficiency: 85 },
+    ],
+    color: "from-[#8B5CF6] to-[#EC4899]"
+  },
+  {
     category: "AI & Deep Learning",
     title: "AI & Deep Learning",
-    description: "Advanced expertise in LLMs, RAG, Deep Learning & NLP",
+    description: "Machine learning, deep learning, NLP & computer vision",
     avgProficiency: 87,
     topSkills: [
       { name: "Python", level: "Expert", proficiency: 90 },

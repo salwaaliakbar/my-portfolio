@@ -1,6 +1,7 @@
 import css from '../public/assets/svg/skills/css.svg';
 import dart from '../public/assets/svg/skills/dart.svg';
 import express from '../public/assets/svg/skills/Express.svg';
+import firebase from '../public/assets/svg/skills/firebase.svg';
 import fastapi from '../public/assets/svg/skills/fastapi.svg';
 import flutter from '../public/assets/svg/skills/flutter.svg';
 import git from '../public/assets/svg/skills/git.svg';
@@ -84,6 +85,8 @@ export const skillsImage = (skill: string) => {
       return githubactions;
     case 'vercel':
       return vercel;
+    case 'firebase':
+      return firebase;
     case 'dart':
       return dart;
     case 'flutter':

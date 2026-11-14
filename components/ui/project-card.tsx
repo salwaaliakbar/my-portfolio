@@ -112,6 +112,14 @@ function ProjectCard({ project }: ProjectCardProps) {
             ,
           </p>
 
+          {project.clientProject && (
+            <p className="pl-4 mt-1">
+              <span className="text-[#EC4899]">type</span>:{" "}
+              <span className="text-[#F59E0B]">{'"client project"'}</span>
+              ,
+            </p>
+          )}
+
           <p className="pl-4 mt-1">
             <span className="text-[#EC4899]">status</span>:{" "}
             <span className={status === "completed" ? "text-[#34C759]" : "text-[#F59E0B]"}>
@@ -142,10 +150,11 @@ function ProjectCard({ project }: ProjectCardProps) {
             <button
               type="button"
               disabled
+              title={project.clientProject ? "Source code is private (client project)" : undefined}
               className={`inline-flex items-center gap-2 px-3 py-2 rounded-lg text-[11px] font-semibold cursor-not-allowed opacity-60 border border-dashed ${isDark ? "bg-[#1B263B] text-[#778DA9] border-[#415A77]" : "bg-[#F5F5F7] text-[#86868B] border-[#D5D5D7]"}`}
             >
               <BsGithub size={14} />
-              <span>View Code</span>
+              <span>{project.clientProject ? "Private Repo" : "View Code"}</span>
             </button>
           )}
 
@@ -162,10 +171,11 @@ function ProjectCard({ project }: ProjectCardProps) {
             <button
               type="button"
               disabled
+              title={project.clientProject ? "No public demo (client project)" : undefined}
               className={`inline-flex items-center gap-2 px-3 py-2 rounded-lg text-[11px] font-semibold cursor-not-allowed opacity-60 border border-dashed ${isDark ? "bg-[#1B263B] text-[#778DA9] border-[#415A77]" : "bg-[#F5F5F7] text-[#86868B] border-[#D5D5D7]"}`}
             >
               <HiOutlineExternalLink size={14} />
-              <span>Live Demo</span>
+              <span>{project.clientProject ? "No Public Demo" : "Live Demo"}</span>
             </button>
           )}
         </div>

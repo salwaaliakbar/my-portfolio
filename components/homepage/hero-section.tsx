@@ -219,7 +219,7 @@ function HeroSection() {
                   <span
                     className={isDark ? "text-[#E0E1DD]" : "text-[#1D1D1F]"}
                   >
-                    {'"AI/ML & Full-Stack Dev"'}
+                    {'"LLMs, Agentic Systems & Full-Stack Dev"'}
                   </span>
                   ,
                 </p>
@@ -236,12 +236,12 @@ function HeroSection() {
                 <p
                   className={`pl-8 ${isDark ? "text-[#E0E1DD]" : "text-[#1D1D1F]"}`}
                 >
-                  {'"React", "Next.js", "AI/ML"'},
+                  {'"React", "Next.js", "TypeScript"'},
                 </p>
                 <p
                   className={`pl-8 ${isDark ? "text-[#E0E1DD]" : "text-[#1D1D1F]"}`}
                 >
-                  {'"Node.js", "Express", "TypeScript"'}
+                  {'"Node.js", "Python", "RAG", "LLMs"'}
                 </p>
                 <p
                   className={`pl-8 ${isDark ? "text-[#E0E1DD]" : "text-[#1D1D1F]"}`}

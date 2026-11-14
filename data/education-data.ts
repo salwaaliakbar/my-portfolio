@@ -4,6 +4,6 @@ export const educations = [
     title: "BS Computer Science",
     duration: "Aug 2022 - May 2026",
     institution: "IBA University",
-    cgpa: "3.85 / 4.00",
+    cgpa: "3.86 / 4.00 | Gold Medalist",
   },
 ];

@@ -7,6 +7,7 @@ interface ProjectData {
     code?: string;
     demo?: string;
     status?: string;
+    clientProject?: boolean;
 }
 
 export type { ProjectData };
