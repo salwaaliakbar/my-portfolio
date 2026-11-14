@@ -236,17 +236,17 @@ function HeroSection() {
                 <p
                   className={`pl-8 ${isDark ? "text-[#E0E1DD]" : "text-[#1D1D1F]"}`}
                 >
-                  {'"React", "Next.js", "TypeScript"'},
+                  {'"Next.js", "React", "TypeScript", "Node.js"'},
                 </p>
                 <p
                   className={`pl-8 ${isDark ? "text-[#E0E1DD]" : "text-[#1D1D1F]"}`}
                 >
-                  {'"Node.js", "Python", "RAG", "LLMs"'}
+                  {'"Python", "FastAPI", "PostgreSQL", "MongoDB"'},
                 </p>
                 <p
                   className={`pl-8 ${isDark ? "text-[#E0E1DD]" : "text-[#1D1D1F]"}`}
                 >
-                  {'"MongoDB", "PostgreSQL", "Flutter"'}
+                  {'"LLMs", "RAG", "Multi-Agent Systems"'}
                 </p>
 
                 <p className="pl-4">],</p>
